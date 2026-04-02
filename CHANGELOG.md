@@ -6,6 +6,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and 
 
 ---
 
+## [0.4.1](https://github.com/junaidiar19/sadevalms/compare/v0.4.0...v0.4.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* **ui:** resolusi berbagai bug pada dark mode termasuk flash, guest page toggle, text contrast, dan inisialisasi layout ([a141aef](https://github.com/junaidiar19/sadevalms/commit/a141aef46c265221f0bed6dc58995cde1391d36d))
+
 ## [0.4.0](https://github.com/junaidiar19/sadevalms/compare/v0.3.0...v0.4.0) (2026-04-02)
 
 
