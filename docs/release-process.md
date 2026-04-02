@@ -106,39 +106,29 @@ git add CHANGELOG.md composer.json
 git commit -m "chore: prepare release v0.4.0"
 ```
 
-### 4. Merge and tag
+### 4. Merge to main — release-please takes over
 
+Once QA is complete on the release branch, merge it into `main` via PR.
+The `release-please` GitHub Action then **automatically**:
+- Opens a new PR titled `chore: release vX.X.X` with an updated `CHANGELOG.md` and bumped version in `.release-please-manifest.json`
+- When **that** PR is merged, it creates a Git tag and GitHub Release with formatted release notes
+
+You only need to run:
 ```bash
 # Merge release branch into main
 git checkout main
-git merge release/0.4.0 --no-ff -m "chore: release v0.4.0"
-
-# Tag
-git tag -a v0.4.0 -m "Release v0.4.0"
-
-# Push both
-git push origin main --follow-tags
-
-# Back-merge into develop
-git checkout develop
-git merge main --no-ff -m "chore: back-merge v0.4.0 into develop"
-git push origin develop
+git merge release/0.4.0 --no-ff
+git push origin main
+# ↑ release-please opens the release PR automatically
 ```
 
-### 5. Create GitHub Release
+### 5. Approve the release-please PR
 
-Go to **GitHub → Releases → Draft a new release**:
-- Tag: `v0.4.0` (select existing tag)
-- Title: `v0.4.0 — <short summary>`
-- Body: paste the CHANGELOG section for this version
-- Mark as pre-release if applicable
+1. GitHub will open a PR: `chore(main): release 0.4.0`
+2. Review the auto-generated `CHANGELOG.md` changes
+3. Merge the PR → GitHub Release and tag are created automatically
 
-Or use the GitHub CLI:
-```bash
-gh release create v0.4.0 \
-  --title "v0.4.0 — Color theme + dark mode" \
-  --notes-file .github/release-notes/0.4.0.md
-```
+Release notes are generated directly from commit messages using the Conventional Commits format.
 
 ### 6. Hotfix process
 
