@@ -18,7 +18,7 @@ class Logout extends Component
 
         session()->flash('toast', [
             'type' => 'success',
-            'message' => 'You have been logged out successfully.',
+            'message' => __('auth.logged_out'),
         ]);
 
         $this->redirect(route('login'), navigate: true);

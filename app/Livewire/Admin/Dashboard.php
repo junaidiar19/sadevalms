@@ -7,9 +7,11 @@ namespace App\Livewire\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Layout('layouts.app', ['title' => 'Admin Dashboard'])]
+#[Layout('layouts.admin')]
+#[Title('Dashboard')]
 class Dashboard extends Component
 {
     public function render(): View

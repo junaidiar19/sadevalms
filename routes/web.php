@@ -2,6 +2,9 @@
 
 use App\Enums\RoleEnum;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\Settings\AppProfile as AdminAppProfile;
+use App\Livewire\Admin\Settings\Language as AdminLanguage;
+use App\Livewire\Admin\Settings\Theme as AdminTheme;
 use App\Livewire\Auth\Login;
 use App\Livewire\Student\Dashboard as StudentDashboard;
 use App\Livewire\SuperAdmin\Dashboard as SuperAdminDashboard;
@@ -23,6 +26,13 @@ Route::middleware(['auth', 'role:'.RoleEnum::SUPER_ADMIN])->prefix('superadmin')
 // Admin
 Route::middleware(['auth', 'role:'.RoleEnum::ADMIN])->prefix('admin')->name('admin.')->group(function (): void {
     Route::livewire('/dashboard', AdminDashboard::class)->name('dashboard');
+
+    // Settings
+    Route::prefix('settings')->name('settings.')->group(function (): void {
+        Route::livewire('/app-profile', AdminAppProfile::class)->name('app-profile');
+        Route::livewire('/language', AdminLanguage::class)->name('language');
+        Route::livewire('/theme', AdminTheme::class)->name('theme');
+    });
 });
 
 // Teacher

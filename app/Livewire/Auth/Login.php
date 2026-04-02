@@ -39,7 +39,7 @@ class Login extends Component
 
         session()->flash('toast', [
             'type' => 'success',
-            'message' => 'Welcome back, '.$user->name.'!',
+            'message' => __('auth.welcome_back', ['name' => $user->name]),
         ]);
 
         $this->redirect($this->resolveRedirectRoute($user), navigate: true);
