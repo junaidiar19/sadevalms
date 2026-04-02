@@ -6,6 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and 
 
 ---
 
+## [0.4.0](https://github.com/junaidiar19/sadevalms/compare/v0.3.0...v0.4.0) (2026-04-02)
+
+
+### Features
+
+* **ci:** add release-please for automatic release notes and versioning ([18f427b](https://github.com/junaidiar19/sadevalms/commit/18f427bae9f9baf0ae291c6bd7f52f1fc531017b))
+
+
+### Bug Fixes
+
+* **ci:** copy .env.ci to .env so app key is visible to all artisan commands ([6144b4c](https://github.com/junaidiar19/sadevalms/commit/6144b4cf72d32ffb5d8f959cb70cc85641d8ccbf))
+* **tests:** call withoutVite() globally so CI doesn't need npm build ([506e00b](https://github.com/junaidiar19/sadevalms/commit/506e00bbb12605e68f96ae918840434df97d9c96))
+* **tests:** enable RefreshDatabase, harden SetLocale, fix ExampleTest assertions ([adc1ce2](https://github.com/junaidiar19/sadevalms/commit/adc1ce2f430aada1fbf85a8e0acdcbb4eb33101b))
+
 ## [Unreleased]
 
 ### Added
