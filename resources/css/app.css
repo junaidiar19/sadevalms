@@ -51,4 +51,8 @@
     ::after {
         @apply border-border;
     }
+
+    [x-cloak] {
+        display: none !important;
+    }
 }

@@ -1,4 +1,4 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+<div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4 transition-colors duration-300">
     <div class="w-full max-w-md">
 
         {{-- Logo / Brand --}}
@@ -13,8 +13,8 @@
                 </div>
             @endif
 
-            <h1 class="text-2xl font-bold text-gray-900 tracking-tight">{{ $appName }}</h1>
-            <p class="text-gray-500 text-sm mt-1">{{ __('auth.sign_in_to_account') }}</p>
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{{ $appName }}</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">{{ __('auth.sign_in_to_account') }}</p>
         </div>
 
         {{-- Card --}}
@@ -49,7 +49,7 @@
                         wire:model="remember"
                         class="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500 cursor-pointer"
                     />
-                    <label for="remember" class="text-sm text-gray-600 cursor-pointer select-none">
+                    <label for="remember" class="text-sm text-gray-600 dark:text-gray-400 cursor-pointer select-none">
                         {{ __('auth.remember_me') }}
                     </label>
                 </div>
