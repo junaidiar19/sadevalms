@@ -1,58 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SadevaLMS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A multi-role Learning Management System (LMS) built with Laravel, Livewire, and Tailwind CSS v4. Designed as a SaaS-ready platform supporting SuperAdmin, Admin, Teacher, and Student roles.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Layer | Package | Version |
+|-------|---------|---------|
+| PHP | — | 8.3 |
+| Framework | Laravel | v13 |
+| UI | Livewire | v4 |
+| Styling | Tailwind CSS | v4 |
+| Auth/Roles | Spatie Permissions | v7 |
+| Media | Spatie Medialibrary | v11 |
+| Testing | Pest | v4 |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Getting Started
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+# Clone and install
+git clone https://github.com/your-org/sadevalms.git
+cd sadevalms
+composer run setup
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+The `setup` script handles: `composer install`, `.env` copy, `key:generate`, `migrate`, `npm install`, and `npm run build`.
 
-## Contributing
+### Development Server
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer run dev
+```
 
-## Code of Conduct
+This runs the Laravel server, queue listener, log watcher (Pail), and Vite dev server concurrently.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Seeding
 
-## Security Vulnerabilities
+```bash
+# Full seed (roles + users + app settings)
+php artisan db:seed
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Individual seeders
+php artisan db:seed --class=AppSettingSeeder
+php artisan db:seed --class=RoleSeeder
+php artisan db:seed --class=UserDummySeeder
+```
+
+Default dummy users (password: `password`):
+
+| Role | Email |
+|------|-------|
+| Super Admin | superadmin@example.com |
+| Admin | admin@example.com |
+| Teacher | teacher@example.com |
+| Student | student@example.com |
+
+## Testing
+
+```bash
+php artisan test --compact
+```
+
+## Documentation
+
+Internal docs are in the [`docs/`](./docs) directory:
+
+- [`docs/release-process.md`](./docs/release-process.md) — versioning rules and release workflow
+- [`docs/architecture.md`](./docs/architecture.md) — system design and conventions
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for a full history of releases.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Proprietary — All rights reserved.
